@@ -5,8 +5,6 @@ import MovieCard from "../../components/MovieCard";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
-const API_KEY = process.env.TMDB_API_SECRET;
-
 export default function FavoritesPage() {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const { data: session } = useSession();
@@ -15,11 +13,7 @@ export default function FavoritesPage() {
     const favorites = getFavorites();
 
     Promise.all(
-      favorites.map((id) =>
-        fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
-        ).then((res) => res.json())
-      )
+      favorites.map((id) => fetch(`/api/movie/${id}`).then((res) => res.json()))
     ).then(setFavoriteMovies);
   }, []);
 
