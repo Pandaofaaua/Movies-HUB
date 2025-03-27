@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Explorer
+
+## Introduction
+
+Welcome to Movie Explorer! This is a fun and interactive web application built using Next.js and Tailwind CSS, designed for movie lovers who want to discover and explore films using the TMDb (The Movie Database) API. Whether you're looking for the latest blockbusters or hidden gems, this app has got you covered!
+
+## Features
+
+- **Search for Movies**: Easily find movies by title and get instant results.
+- **Movie Details**: Click on any movie to see detailed information, including ratings, release dates, and overviews.
+- **Responsive Design**: Enjoy a smooth experience on any device, thanks to Tailwind CSS.
+- **Fast Performance**: Built with Next.js for quick loading times and a seamless user experience.
+
+## Technologies Used
+
+- **Next.js**: A powerful React framework that enables server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework that makes styling a breeze.
+- **TMDb API**: Access a vast database of movie information to enhance your app.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you begin, make sure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (version 14 or higher)
+- npm or yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/movie-explorer.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd movie-explorer
+   ```
+3. Install the necessary dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+### Running the Application
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To start the development server, simply run:
