@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface MovieCardProps {
   movie: Movie;
@@ -20,10 +21,13 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
             className="border-2 border-black 
           dark:border-white rounded-lg p-2 hover:shadow-lg transition transform hover:scale-105"
           >
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
               alt={movie.title}
               className="w-full h-auto md:h-80 rounded-md mb-2"
+              loading="lazy"
+              width={500}
+              height={750}
             />
             <p className="text-lg font-semibold">{movie.title}</p>
             <p className="text-sm text-gray-500">

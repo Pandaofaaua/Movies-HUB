@@ -16,7 +16,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="flex flex-row items-center justify-center bg-slate-200 dark:bg-black mx-auto max-w-lg py-1 px-4 min-h-[calc(100vh-130px)] md:min-h-[calc(100vh-180px)]">
+    <main className="flex flex-col items-center justify-center bg-slate-200 dark:bg-black mx-auto max-w-lg py-1 px-4 min-h-[calc(100vh-130px)] md:min-h-[calc(100vh-180px)]">
       <h2 className="my-4 text-2xl font-bold">Something went wrong!</h2>
       <button
         className="mb-4 p-4 bg-red-500 text-white rounded-xl hover:bg-red-800"

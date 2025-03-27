@@ -1,5 +1,5 @@
 export const addFavorite = (movieId: string) => {
-  let favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+  const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
 
   if (!favorites.includes(movieId)) {
     favorites.push(movieId);
@@ -8,9 +8,9 @@ export const addFavorite = (movieId: string) => {
 };
 
 export const removeFavorite = (movieId: string) => {
-  let favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+  const favorite = JSON.parse(sessionStorage.getItem("favorites") || "[]");
 
-  favorites = favorites.filter((id: string) => id !== movieId);
+  const favorites = favorite.filter((id: string) => id !== movieId);
   sessionStorage.setItem("favorites", JSON.stringify(favorites));
 };
 

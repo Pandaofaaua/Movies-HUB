@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
 export default function FavoritesPage() {
-  const [favoriteMovies, setFavoriteMovies] = useState<any[]>([]);
+  const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const { data: session } = useSession();
 
   useEffect(() => {

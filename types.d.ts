@@ -16,3 +16,16 @@ type Genre = {
   id: number;
   name: string;
 };
+
+type Video = {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+};
+
+type Provider = {
+  id: string;
+  name: string;
+};

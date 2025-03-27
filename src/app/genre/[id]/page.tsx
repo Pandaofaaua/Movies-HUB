@@ -3,17 +3,16 @@ import MovieCard from "../../components/MovieCard";
 import PaginationButtons from "../../components/PaginationBtn";
 import Navbar from "@/app/components/Navbar";
 
-interface GenrePageProps {
-  params: { id: string };
-  searchParams: { page?: string };
-}
-
 export default async function GenrePage({
   params,
   searchParams,
-}: GenrePageProps) {
-  const page = parseInt(searchParams.page || "1");
-  const genreId = params.id;
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const page = parseInt(resolvedSearchParams?.page || "1");
+  const { id: genreId } = await params;
 
   // Fetching movies based on genre with correct pagination
   const data = await fetchFromAPI(

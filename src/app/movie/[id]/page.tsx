@@ -2,7 +2,7 @@ import { fetchFromAPI } from "../../../../lib/fetchData";
 import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
 import FavoriteButton from "@/app/components/Favbtn";
-import type { Metadata } from "next";
+import Image from "next/image";
 
 interface Cast {
   id: number;
@@ -19,19 +19,20 @@ interface Crew {
 export default async function MovieDetails({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const movie: Movie = await fetchFromAPI(`movie/${params.id}`);
+  const resolvedParams = await params;
+  const movie: Movie = await fetchFromAPI(`movie/${resolvedParams.id}`);
   if (!movie) return <p>No results found.</p>;
 
   // Fetch trailers from the API
-  const trailersData = await fetchFromAPI(`movie/${params.id}/videos`);
+  const trailersData = await fetchFromAPI(`movie/${resolvedParams.id}/videos`);
   const trailers = trailersData.results.filter(
-    (video: any) => video.site === "YouTube" && video.type === "Trailer"
+    (video: Video) => video.site === "YouTube" && video.type === "Trailer"
   );
 
   // Fetch credits for cast and crew
-  const credits = await fetchFromAPI(`movie/${params.id}/credits`);
+  const credits = await fetchFromAPI(`movie/${resolvedParams.id}/credits`);
   const topCast: Cast[] = credits.cast.slice(0, 3);
   const mainCrew: Crew[] = credits.crew
     .filter(
@@ -39,7 +40,9 @@ export default async function MovieDetails({
     )
     .slice(0, 2);
   // Fetch similar movies
-  const similarMoviesData = await fetchFromAPI(`movie/${params.id}/similar`);
+  const similarMoviesData = await fetchFromAPI(
+    `movie/${resolvedParams.id}/similar`
+  );
   const similarMovies: Movie[] = similarMoviesData.results.slice(0, 6);
 
   return (
@@ -49,10 +52,12 @@ export default async function MovieDetails({
       </Link>
       <div className="mt-4 flex flex-col gap-6 lg:gap-3">
         <div className="flex justify-center">
-          <img
+          <Image
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             alt={movie.title}
             className="rounded-md shadow-md h-auto w-48 md:w-64 lg:w-72"
+            width={500}
+            height={750}
           />
         </div>
         <div className="flex flex-col lg:gap-1">
@@ -60,7 +65,7 @@ export default async function MovieDetails({
           <p className="text-gray-600">Release Date: {movie.release_date}</p>
           <div className="flex flex-row gap-4 items-center">
             <p className="text-gray-600">Rating: {movie.vote_average} ⭐</p>
-            <FavoriteButton movieId={params.id} />
+            <FavoriteButton movieId={resolvedParams.id} />
           </div>
           <p className="mt-4 text-lg sm:text-xl font-medium">
             {movie.overview}

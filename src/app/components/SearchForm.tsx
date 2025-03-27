@@ -1,7 +1,7 @@
 "use client";
 
 import { MagnifyingGlassIcon, XCircleIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect, ChangeEvent, MouseEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
@@ -54,7 +54,7 @@ export default function Search() {
     setError("");
   };
 
-  const handleSelect = (id: number, searchTerm?: string) => {
+  const handleSelect = (id: number) => {
     setQuery("");
     setResults([]);
     setError("");
@@ -99,7 +99,7 @@ export default function Search() {
           {results.map((movie) => (
             <motion.li
               key={movie.id}
-              onClick={() => handleSelect(movie.id, movie.title)}
+              onClick={() => handleSelect(movie.id)}
               className="px-4 py-2 dark:bg-black hover:bg-blue-100
               dark:hover:bg-slate-500 cursor-pointer transition duration-300 ease-in-out"
               whileHover={{ scale: 1.02 }}

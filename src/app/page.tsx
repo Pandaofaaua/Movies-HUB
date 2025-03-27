@@ -8,9 +8,10 @@ import Link from "next/link";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = parseInt(searchParams.page || "1");
+  const resolvedSearchParams = await searchParams;
+  const page = parseInt(resolvedSearchParams?.page || "1");
   const data = await fetchFromAPI(`movie/popular`, page);
   const movies: Movie[] = data.results;
 
