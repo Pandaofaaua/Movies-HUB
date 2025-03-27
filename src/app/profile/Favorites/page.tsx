@@ -5,7 +5,7 @@ import MovieCard from "../../components/MovieCard";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
-const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+const API_KEY = process.env.TMDB_API_SECRET;
 
 export default function FavoritesPage() {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);

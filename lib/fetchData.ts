@@ -1,4 +1,4 @@
-const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+const API_KEY = process.env.TMDB_API_SECRET;
 
 export const fetchFromAPI = async (endpoint: string, page = 1) => {
   const url = endpoint.includes("?")
