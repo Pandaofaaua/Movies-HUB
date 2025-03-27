@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Movie Explorer",
-  description: "A movie explorer app",
+  title: "Movies-HUB",
+  description: "A movie explorer app for film enthusiasts.",
+  keywords: ["movies", "explorer", "app", "film", "cinema", "tv"],
 };
 
 export default function RootLayout({
@@ -25,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/OSEYI.png" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Providers>{children}</Providers>
       </body>

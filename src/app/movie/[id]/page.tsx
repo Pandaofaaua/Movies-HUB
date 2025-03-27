@@ -1,8 +1,8 @@
-// src/app/movie/[id]/page.tsx
 import { fetchFromAPI } from "../../../../lib/fetchData";
 import Link from "next/link";
 import MovieCard from "@/app/components/MovieCard";
 import FavoriteButton from "@/app/components/Favbtn";
+import type { Metadata } from "next";
 
 interface Cast {
   id: number;
