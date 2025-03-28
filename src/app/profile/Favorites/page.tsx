@@ -13,7 +13,9 @@ export default function FavoritesPage() {
     const favorites = getFavorites();
 
     Promise.all(
-      favorites.map((id) => fetch(`/api/movie/${id}`).then((res) => res.json()))
+      favorites.map((id) =>
+        fetch(`/api/movies/${id}`).then((res) => res.json())
+      )
     ).then(setFavoriteMovies);
   }, []);
 

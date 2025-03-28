@@ -1,4 +1,5 @@
 export const addFavorite = (movieId: string) => {
+  console.log("Adding favorite:", movieId);
   const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
 
   if (!favorites.includes(movieId)) {

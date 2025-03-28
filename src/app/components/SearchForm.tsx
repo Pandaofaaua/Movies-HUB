@@ -27,9 +27,7 @@ export default function Search() {
 
     const fetchResults = async () => {
       try {
-        const res = await fetch(
-          `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${process.env.TMDB_API_SECRET}`
-        );
+        const res = await fetch(`/api/search?query=${query}`);
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setResults(data.results || []);

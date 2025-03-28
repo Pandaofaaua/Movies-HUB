@@ -18,10 +18,8 @@ export const fetchFromAPI = async (endpoint: string, page = 1) => {
 };
 
 export const fetchGenres = async () => {
-  const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`;
-
   try {
-    const response = await fetch(url);
+    const response = await fetch("/api/genres");
     if (!response.ok) {
       throw new Error("Failed to fetch genres");
     }

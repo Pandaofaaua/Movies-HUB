@@ -16,14 +16,18 @@ const authOptions = {
     TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID!,
       clientSecret: process.env.TWITTER_CLIENT_SECRET!,
-      version: "2.0", // Ensure this matches Twitter API version
+      version: "2.0",
     }),
   ],
   pages: {
-    signIn: "/auth/signin", // Custom Sign-In Page Path
+    signIn: "/auth/signin",
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
-  debug: true,
 };
 
 // Use named exports for HTTP methods
