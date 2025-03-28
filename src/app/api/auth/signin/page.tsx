@@ -15,7 +15,7 @@ const providerLogos: Record<string, string> = {
 
 export default function SignIn() {
   const [providers, setProviders] = useState<Provider[]>([]);
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
