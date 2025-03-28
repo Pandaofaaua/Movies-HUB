@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { fetchGenres } from "../../../lib/fetchData";
+import { fetchGenresList } from "../../../lib/fetchData";
 
 const GenreFilter = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -11,7 +11,7 @@ const GenreFilter = () => {
   useEffect(() => {
     const getGenres = async () => {
       try {
-        const data = await fetchGenres();
+        const data = await fetchGenresList();
         setGenres(data.genres);
       } catch (error) {
         console.error("Error fetching genres:", error);

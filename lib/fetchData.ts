@@ -17,10 +17,23 @@ export const fetchFromAPI = async (endpoint: string, page = 1) => {
   }
 };
 
+export const fetchGenresList = async () => {
+  try {
+    const response = await fetch("/api/genres");
+    if (!response.ok) {
+      throw new Error("Failed to fetch genres");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error in fetchGenres:", error);
+    throw error;
+  }
+};
+
 export const fetchGenres = async () => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const response = await fetch(`${baseUrl}/api/genres`);
+    const response = await fetch(`${baseUrl}/api/genres`); // ✅ Use absolute URL
 
     if (!response.ok) {
       throw new Error("Failed to fetch genres");
