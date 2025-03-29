@@ -32,8 +32,10 @@ export const fetchGenresList = async () => {
 
 export const fetchGenres = async () => {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const response = await fetch(`${baseUrl}/api/genres`); // ✅ Use absolute URL
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL ||
+      "https://movies-hub-by-loseyi.vercel.app";
+    const response = await fetch(`${baseUrl}/api/genres`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch genres");
